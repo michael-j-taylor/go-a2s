@@ -20,6 +20,9 @@ type PlayerInfo struct {
 
 	// Slice of pointers to each Player
 	Players []*Player `json:"Players"`
+
+	// Map of [player name ] is_online to quickly check status on server
+	PlayersTest map[string]bool `json:"PlayersTest"`
 }
 
 type Player struct {
@@ -145,6 +148,7 @@ func (c *Client) parsePlayerInfo(data []byte) (*PlayerInfo, error) {
 		}
 
 		info.Players = append(info.Players, player)
+		info.PlayersTest[player.Name] = true
 	}
 
 	return info, nil
