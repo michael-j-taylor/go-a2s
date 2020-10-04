@@ -10,7 +10,7 @@ import (
 
 // Note that some games such as squad may use a non-standard packet size
 // Refer to the game documentation to see if this needs to be changed
-const MaxPacketSize = 5600 //quadroupled for Rust
+const MaxPacketSize = 10000 //I keep cranking this up but it eventually stops being big enough. Probably should look into that.
 
 var (
 	ErrOutOfBounds = errors.New("Read out of bounds")

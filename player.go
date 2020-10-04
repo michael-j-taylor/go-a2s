@@ -126,6 +126,7 @@ func (c *Client) parsePlayerInfo(data []byte) (*PlayerInfo, error) {
 	info.Count = reader.ReadUint8()
 
 	var player *Player
+	info.PlayersTest = make(map[string]bool)
 
 	for i := 0; i < int(info.Count); i++ {
 		player = &Player{}
